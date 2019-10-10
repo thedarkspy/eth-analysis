@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "eth-analysis"
+version = "0.1.0"
+description = ""
+authors = ["Husam92 <hossamjawaheri@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+web3 = "^5.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+pylint = "^2.4"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

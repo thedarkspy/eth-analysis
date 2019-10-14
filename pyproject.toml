@@ -7,6 +7,8 @@ authors = ["Husam92 <hossamjawaheri@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 web3 = "^5.2"
+tqdm = "^4.36"
+py-etherscan-api = "^0.8.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"

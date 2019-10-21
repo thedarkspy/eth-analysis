@@ -37,3 +37,8 @@ MANIFEST.in
 /releases/*
 pip-wheel-metadata
 /poetry.toml
+
+#custom
+
+/eth_analysis/api_key.json
+/blocks/*

@@ -9,9 +9,9 @@ from etherscan.proxies import Proxies
 blocks_path = "../blocks/"
 max_files_in_dir = 5000
 files_in_dir = 0
-current_dir = 0
+current_dir = 12
 
-sleep_time = 0.15
+sleep_time = 0.2
 first_block_num = 4650000
 last_block_num = 4825000
 
@@ -22,12 +22,12 @@ api = Proxies(api_key=key)
 try:
     mkdir(blocks_path + str(current_dir))
 except OSError:
-    print('Failed to create directory %s' % blocks_path)
+    print('Failed to create directory %s' % blocks_path + str(current_dir))
 else:
-    print('Created directory %s successfully' % blocks_path)
+    print('Created directory %s successfully' % blocks_path + str(current_dir))
 
 print("Downloading transactions for blocks: {} to {}".format(first_block_num, last_block_num))
-for i in tqdm(range(first_block_num, last_block_num)):
+for i in tqdm(range(4708444, last_block_num + 1)):
     try:
         block = api.get_block_by_number(i)
         minified_txs = []

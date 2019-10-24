@@ -6,10 +6,10 @@ from os.path import isfile
 from requests import HTTPError
 from etherscan.proxies import Proxies
 
-blocks_path = "../blocks/"
+blocks_path = "../blocks_new/"
 max_files_in_dir = 5000
 files_in_dir = 0
-current_dir = 12
+current_dir = 0
 
 sleep_time = 0.2
 first_block_num = 4650000

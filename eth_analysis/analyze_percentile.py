@@ -1,8 +1,6 @@
 import numpy as np
 import os
 import json 
-from tqdm import tqdm
-
 
 blocksDir = "../blocks_new"
 resultsDir = "../results/"
@@ -51,20 +49,20 @@ def main():
             if dirEntry.is_dir():
                 for blockFile in os.listdir(dirEntry): 
                     if blockFile.endswith(".json"):
-                            blockNum = getBlockNum(blockFile)  
-                            print("Calculating loss for block: " + blockNum)
-                            block_stats = {}
-                            block_stats['blockNum'] = blockNum
+                        blockNum = getBlockNum(blockFile)  
+                        print("Calculating loss for block: " + blockNum)
+                        block_stats = {}
+                        block_stats['blockNum'] = blockNum
 
-                            transactions = getBlockTransactions(dirEntry, blockFile)
-                            block_stats['absoluteLoss'] = calculateAbsoluteLoss(transactions)
+                        transactions = getBlockTransactions(dirEntry, blockFile)
+                        block_stats['absoluteLoss'] = calculateAbsoluteLoss(transactions)
 
-                            gasPrices = getGasPriceList(transactions)
-                            for i in range(1, 100):
-                                nthPercentile = getNthPercentile(gasPrices, i)
-                                block_stats['ceilingLossAtPercentile'] = calculateLossAtPercentile(transactions, nthPercentile)
-                                with open(resultsDir + str(i) + '.json', 'a') as writer:
-                                    writer.write(json.dumps(block_stats) + '\n')
+                        gasPrices = getGasPriceList(transactions)
+                        for i in range(1, 100):
+                            nthPercentile = getNthPercentile(gasPrices, i)
+                            block_stats['ceilingLossAtPercentile'] = calculateLossAtPercentile(transactions, nthPercentile)
+                            with open(resultsDir + str(i) + '.json', 'a') as writer:
+                                writer.write(json.dumps(block_stats) + '\n')
 
 if __name__ == "__main__":
     main()
